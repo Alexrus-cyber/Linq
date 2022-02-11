@@ -42,6 +42,28 @@ namespace ConsoleApp1
 
 
             //Конец Выборки обьектов
+
+            ///Выборка из нескольких источников
+  
+                List<User> usersi = new List<User>()
+                {
+                    new User { Name = "Sam", Age = 43 },
+                    new User { Name = "Tom", Age = 33 }
+                };
+
+                List<Phone> phones = new List<Phone>()
+                {
+                        new Phone {Name="Lumia 630", Company="Microsoft" },
+                        new Phone {Name="iPhone 6", Company="Apple"},
+                };
+
+                var people = from user in users
+                             from phone in phones
+                             select new { Name = user.Name, Phone = phone.Name };
+
+                foreach (var p in people)
+                    Console.WriteLine($"{p.Name} - {p.Phone}");
+
         }
     }
 }
