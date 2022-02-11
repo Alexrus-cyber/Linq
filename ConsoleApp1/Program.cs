@@ -51,19 +51,18 @@ namespace ConsoleApp1
                     new User { Name = "Tom", Age = 33 }
                 };
 
-                List<Phone> phones = new List<Phone>()
+                List<Phone> phones = new List<Phone>() // список телефона
                 {
-                        new Phone {Name="Lumia 630", Company="Microsoft" },
+                        new Phone {Name="Lumia 630", Company="Microsoft" }, // создаём экземпляр класса
                         new Phone {Name="iPhone 6", Company="Apple"},
                 };
 
                 var people = from user in users
                              from phone in phones
-                             select new { Name = user.Name, Phone = phone.Name };
+                             select new { Name = user.Name, Phone = phone.Name }; //выбираем обьект
 
                 foreach (var p in people)
-                    Console.WriteLine($"{p.Name} - {p.Phone}");
-
+                    Console.WriteLine($"{p.Name} - {p.Phone}"); // Выводим у какого юзера - телефон
         }
     }
 }
